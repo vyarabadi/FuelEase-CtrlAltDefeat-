@@ -36,6 +36,7 @@
 		8774D46A2AEB5CAC00B4843C /* AbhayaLibre-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8774D4692AEB5CAC00B4843C /* AbhayaLibre-Bold.ttf */; };
 		8774D46C2AEB5CB900B4843C /* AbhayaLibre-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8774D46B2AEB5CB900B4843C /* AbhayaLibre-ExtraBold.ttf */; };
 		8774D46E2AEB5CC000B4843C /* AbhayaLibre-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8774D46D2AEB5CC000B4843C /* AbhayaLibre-SemiBold.ttf */; };
+		C83372672AF7376A00F74F8C /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83372662AF7376A00F74F8C /* FavoritesView.swift */; };
 		C87C53062AEC9FE400DD0CE6 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87C53052AEC9FE400DD0CE6 /* AccountView.swift */; };
 		C87C53092AECA06300DD0CE6 /* LogOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87C53082AECA06300DD0CE6 /* LogOut.swift */; };
 		C87C530C2AECA13200DD0CE6 /* PriceReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87C530B2AECA13200DD0CE6 /* PriceReportView.swift */; };
@@ -84,6 +85,7 @@
 		8774D46B2AEB5CB900B4843C /* AbhayaLibre-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbhayaLibre-ExtraBold.ttf"; sourceTree = "<group>"; };
 		8774D46D2AEB5CC000B4843C /* AbhayaLibre-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbhayaLibre-SemiBold.ttf"; sourceTree = "<group>"; };
 		8774D46F2AEB5CDF00B4843C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C83372662AF7376A00F74F8C /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		C87C53052AEC9FE400DD0CE6 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		C87C53082AECA06300DD0CE6 /* LogOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOut.swift; sourceTree = "<group>"; };
 		C87C530B2AECA13200DD0CE6 /* PriceReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceReportView.swift; sourceTree = "<group>"; };
@@ -150,9 +152,6 @@
 				8774D4562AEB504100B4843C /* Root */,
 				8774D4312AEB49F700B4843C /* Core */,
 				8774D4052AEB494100B4843C /* FuelEaseApp.swift */,
-				C87C530A2AECA12200DD0CE6 /* PriceReport */,
-				C87C53072AECA05500DD0CE6 /* LogOut */,
-				C87C53042AEC9FC500DD0CE6 /* Account */,
 				8774D4092AEB494300B4843C /* Assets.xcassets */,
 				8774D40B2AEB494300B4843C /* Preview Content */,
 			);
@@ -219,10 +218,13 @@
 			isa = PBXGroup;
 			children = (
 				8774D4402AEB4E7200B4843C /* SettingsView.swift */,
+				C87C53052AEC9FE400DD0CE6 /* AccountView.swift */,
+				C83372662AF7376A00F74F8C /* FavoritesView.swift */,
 				8774D4422AEB4E9800B4843C /* FeedbackView.swift */,
 				8774D44A2AEB4F6900B4843C /* RatingView.swift */,
 				8774D44C2AEB4F7700B4843C /* ReportView.swift */,
 				8774D44E2AEB4F9200B4843C /* HelpSupportView.swift */,
+				C87C53082AECA06300DD0CE6 /* LogOut.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				8774D4512AEB4FC300B4843C /* HomeView.swift */,
+				C87C530B2AECA13200DD0CE6 /* PriceReportView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -248,30 +251,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C87C53042AEC9FC500DD0CE6 /* Account */ = {
-			isa = PBXGroup;
-			children = (
-				C87C53052AEC9FE400DD0CE6 /* AccountView.swift */,
-			);
-			path = Account;
-			sourceTree = "<group>";
-		};
-		C87C53072AECA05500DD0CE6 /* LogOut */ = {
-			isa = PBXGroup;
-			children = (
-				C87C53082AECA06300DD0CE6 /* LogOut.swift */,
-			);
-			path = LogOut;
-			sourceTree = "<group>";
-		};
-		C87C530A2AECA12200DD0CE6 /* PriceReport */ = {
-			isa = PBXGroup;
-			children = (
-				C87C530B2AECA13200DD0CE6 /* PriceReportView.swift */,
-			);
-			path = PriceReport;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,6 +412,7 @@
 				8774D43C2AEB4B0500B4843C /* SignupUser.swift in Sources */,
 				8774D44D2AEB4F7700B4843C /* ReportView.swift in Sources */,
 				8774D4522AEB4FC300B4843C /* HomeView.swift in Sources */,
+				C83372672AF7376A00F74F8C /* FavoritesView.swift in Sources */,
 				8774D4062AEB494100B4843C /* FuelEaseApp.swift in Sources */,
 				C87C53062AEC9FE400DD0CE6 /* AccountView.swift in Sources */,
 				8774D44F2AEB4F9200B4843C /* HelpSupportView.swift in Sources */,

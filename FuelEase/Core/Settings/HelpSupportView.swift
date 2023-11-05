@@ -14,24 +14,27 @@ struct HelpSupport: View {
             ZStack {
                 Color("BackgroundColor")
                     .ignoresSafeArea()
+                Spacer()
+                    .navigationBarBackButtonHidden(true)
+                    .toolbar(content: {
+                        ToolbarItem (placement: .navigationBarLeading)  {
+                            
+                            Button(action: {
+                                presentationMode.wrappedValue.dismiss()
+                            }, label: {
+                                Image(systemName: "arrow.left")
+                                //Image(systemName: "house.fill")
+                                    .foregroundColor(Color("TextColor"))
+                                Text("Settings")
+                                    .foregroundColor(Color("TextColor"))
+                                    .font(.custom("AbhayaLibre-ExtraBold", size: 22))
+                                
+                            })
+                            
+                        }
+                    })
                 
                 VStack {
-                    // Top gear button
-                   /* HStack {
-                      
-                        Button(action:{
-                            print("Settings")
-                        }){
-                                Image(systemName: "gear")
-                                    .font(.largeTitle)
-                                    .padding()
-                                    .foregroundColor(.text)
-                            }
-                       
-                        Spacer()
-                    }
-                    .padding(.bottom, 40)*/
-                    
                     // Settings Text
                     Text("Help Support")
                         .font(.custom("AbhayaLibre-ExtraBold", size: 55))

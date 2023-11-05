@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AccountView: View {
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     var body: some View {
         VStack(spacing: 0) {
             Color(.background)
@@ -18,6 +19,25 @@ struct AccountView: View {
                 .foregroundColor(Color(red: 0.98, green: 0.953, blue: 0.941))
                 .overlay(
                     VStack {
+                        Spacer()
+                            .navigationBarBackButtonHidden(true)
+                            .toolbar(content: {
+                                ToolbarItem (placement: .navigationBarLeading)  {
+                                    
+                                    Button(action: {
+                                        presentationMode.wrappedValue.dismiss()
+                                    }, label: {
+                                        Image(systemName: "arrow.left")
+                                        //Image(systemName: "house.fill")
+                                            .foregroundColor(Color("TextColor"))
+                                        Text("Settings")
+                                            .foregroundColor(Color("TextColor"))
+                                            .font(.custom("AbhayaLibre-ExtraBold", size: 22))
+                                        
+                                    })
+                                    
+                                }
+                            })
                         Image(systemName: "person.crop.circle.fill")
                             .resizable()
                             .frame(width: 80, height: 80)
