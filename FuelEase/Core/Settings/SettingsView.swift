@@ -97,9 +97,10 @@ struct Settings: View {
                                 .shadow(radius: 5))})
                     Button(action: {}, label: {
                         HStack{
-                            Image(systemName: "info.circle")
-                                .offset(x:-60)
-                            Text("About")}
+                            NavigationLink(destination:AboutView()){
+                                Image(systemName: "info.circle")
+                                    .offset(x:-60)
+                                Text("About")}}
                         .font(.custom("AbhayaLibre-ExtraBold", size: 22))
                         .padding()
                         .padding(.horizontal, 74)
