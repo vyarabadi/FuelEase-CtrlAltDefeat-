@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87182DC52AF9AC9400BE5CD3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87182DC42AF9AC9400BE5CD3 /* SearchView.swift */; };
 		8774D4062AEB494100B4843C /* FuelEaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D4052AEB494100B4843C /* FuelEaseApp.swift */; };
 		8774D4082AEB494100B4843C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D4072AEB494100B4843C /* ContentView.swift */; };
 		8774D40A2AEB494300B4843C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8774D4092AEB494300B4843C /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		87182DC42AF9AC9400BE5CD3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		8774D4022AEB494100B4843C /* FuelEase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuelEase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8774D4052AEB494100B4843C /* FuelEaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelEaseApp.swift; sourceTree = "<group>"; };
 		8774D4072AEB494100B4843C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		87182DC32AF9AC6D00BE5CD3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				87182DC42AF9AC9400BE5CD3 /* SearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		8774D3F92AEB494100B4843C = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +207,7 @@
 		8774D4312AEB49F700B4843C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				87182DC32AF9AC6D00BE5CD3 /* Search */,
 				8774D4502AEB4FB100B4843C /* Home */,
 				8774D43F2AEB4E5800B4843C /* Settings */,
 				8774D4342AEB4A2200B4843C /* Authentication */,
@@ -433,6 +444,7 @@
 				8774D43C2AEB4B0500B4843C /* SignupUser.swift in Sources */,
 				8774D44D2AEB4F7700B4843C /* ReportView.swift in Sources */,
 				8774D4522AEB4FC300B4843C /* HomeView.swift in Sources */,
+				87182DC52AF9AC9400BE5CD3 /* SearchView.swift in Sources */,
 				8774D4062AEB494100B4843C /* FuelEaseApp.swift in Sources */,
 				C87C53062AEC9FE400DD0CE6 /* AccountView.swift in Sources */,
 				8774D44F2AEB4F9200B4843C /* HelpSupportView.swift in Sources */,

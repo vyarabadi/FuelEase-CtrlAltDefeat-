@@ -1,10 +1,3 @@
-//
-//  LogOut.swift
-//  FuelEase
-//
-//  Created by Diya Patel on 10/26/23.
-//
-
 import SwiftUI
 
 struct LogOut: View {
