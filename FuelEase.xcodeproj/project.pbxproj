@@ -39,6 +39,7 @@
 		C87C53062AEC9FE400DD0CE6 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87C53052AEC9FE400DD0CE6 /* AccountView.swift */; };
 		C87C53092AECA06300DD0CE6 /* LogOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87C53082AECA06300DD0CE6 /* LogOut.swift */; };
 		C87C530C2AECA13200DD0CE6 /* PriceReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87C530B2AECA13200DD0CE6 /* PriceReportView.swift */; };
+		FC4ED4992AF8A3F400288055 /* EditPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4ED4982AF8A3F400288055 /* EditPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		C87C53052AEC9FE400DD0CE6 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		C87C53082AECA06300DD0CE6 /* LogOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOut.swift; sourceTree = "<group>"; };
 		C87C530B2AECA13200DD0CE6 /* PriceReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceReportView.swift; sourceTree = "<group>"; };
+		FC4ED4982AF8A3F400288055 /* EditPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				C87C53052AEC9FE400DD0CE6 /* AccountView.swift */,
+				FC4ED4982AF8A3F400288055 /* EditPage.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				8774D43C2AEB4B0500B4843C /* SignupUser.swift in Sources */,
 				8774D44D2AEB4F7700B4843C /* ReportView.swift in Sources */,
 				8774D4522AEB4FC300B4843C /* HomeView.swift in Sources */,
+				FC4ED4992AF8A3F400288055 /* EditPage.swift in Sources */,
 				8774D4062AEB494100B4843C /* FuelEaseApp.swift in Sources */,
 				C87C53062AEC9FE400DD0CE6 /* AccountView.swift in Sources */,
 				8774D44F2AEB4F9200B4843C /* HelpSupportView.swift in Sources */,
