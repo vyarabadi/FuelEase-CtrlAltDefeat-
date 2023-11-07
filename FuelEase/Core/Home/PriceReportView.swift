@@ -148,53 +148,7 @@ struct PriceReportView: View {
                                         .offset(x: 0, y: -280)
                                     }
                                 }
-                    
-                    
-            .tabItem {
-                Image(systemName: "house.fill")
-                Text("Home")
-            }
-            .tag(ActiveSection.home)
-            
-            // Car Tab/search
-            ZStack {
-                Text("Car Tab/ search things") // Placeholder for car content
-            }
-            .tabItem {
-                Image(systemName: "car.fill")
-                Text("Find gas")
-            }
-            .tag(ActiveSection.car)
-            
-            // Report Tab
-            ZStack {
-                Text("Report gas price") // Placeholder for report a gas price content
-            }
-            .tabItem {
-                Image(systemName: "clipboard.fill")
-                Text("Price Log")
-            }
-            .tag(ActiveSection.clipboard)
-            
-            // Map Tab
-            ZStack {
-                Text("Map Content") // Placeholder for map content
-            }
-            .tabItem {
-                Image(systemName: "map.fill")
-                Text("Map")
-            }
-            .tag(ActiveSection.map)
-            
-            // Notifications Tab
-            ZStack {
-                Text("Notifications") // Placeholder for bell content
-            }
-            .tabItem {
-                Image(systemName: "bell.fill")
-                Text("Notifications")
-            }
-            .tag(ActiveSection.bell)
+
         }
         .onAppear(perform: {
             let appearance = UITabBarAppearance()

@@ -5,11 +5,32 @@ struct Report: View {
     @State var name: String = ""
     @State var email: String = ""
     @State var message: String = ""
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     var body: some View {
         ZStack {
             Color("BackgroundColor")
                 .ignoresSafeArea()
+            Spacer()
+                .navigationBarBackButtonHidden(true)
+                .toolbar(content: {
+                    ToolbarItem (placement: .navigationBarLeading)  {
+                        
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }, label: {
+                            Image(systemName: "arrow.left")
+                            //Image(systemName: "house.fill")
+                                .foregroundColor(Color("TextColor"))
+                            Text("Help Support")
+                                .foregroundColor(Color("TextColor"))
+                                .font(.custom("AbhayaLibre-ExtraBold", size: 22))
+                            
+                        })
+                        
+                    }
+                })
             VStack {
+                
                 Text("Please Enter Inquiry:" )
                     .font(.custom("AbhayaLibre-ExtraBold", size: 40))
                     .padding()

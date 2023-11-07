@@ -3,16 +3,9 @@ import SwiftUI
 
 
 struct HomeView: View {
-    @State private var activeSection: ActiveSection = .home
-
-    
-    enum ActiveSection: String {
-        case home, car, clipboard, map, bell
-    }
     
     var body: some View {
         NavigationView{
-            TabView(selection: $activeSection) {
                 
                 // Home Tab
                 ZStack {
@@ -27,7 +20,6 @@ struct HomeView: View {
                                 Image(systemName: "gear")
                                     .font(.largeTitle)
                                     .padding()
-                                    .padding(.bottom,40)
                                     .foregroundColor(.text)
                                 
                             }
@@ -39,18 +31,17 @@ struct HomeView: View {
                                 Image(systemName: "person.circle")
                                     .font(.largeTitle)
                                     .padding()
-                                    .padding(.bottom, 40)
                                     .foregroundColor(.text)
                             }
                         }
+                        Spacer()
                         Text("My Home")
                             .font(.custom("AbhayaLibre-ExtraBold", size: 55))
                             .foregroundColor(Color("TextColor"))
-                            .padding(.bottom,300)
+                            .padding(.bottom,20)
+                        Spacer()
                         
-                        Button(action: {
-                            self.activeSection = .car
-                        }, label: {
+                        Button(action: {}, label: {
                             Text("Find cheap gas now")
                                 .font(.custom("AbhayaLibre-ExtraBold", size: 32))
                                 .padding()
@@ -64,10 +55,12 @@ struct HomeView: View {
                                         .shadow(radius: 5)
                                 )
                         })
-                        .offset(x:0, y:-230)
+                        //.offset(x:0, y:-230)
+                        .padding(.bottom,20)
+                    
                         
                         Button(action: {}) {
-                            HStack {
+
                                 NavigationLink(destination: PriceReportView()) {
                                     Text("Report gas price")
                                         .font(.custom("AbhayaLibre-ExtraBold", size: 32))
@@ -81,75 +74,19 @@ struct HomeView: View {
                                         )
                                         .shadow(radius: 5)
                                 }
-                            }
                         }
-                        .offset(x:0, y:-200)
+                        //.offset(x:0, y:-200)
+                        .padding(.bottom,300)
                     }
                 }
-                //home tab
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
-                .tag(ActiveSection.home)
-                // Car Tab/search
-                ZStack {
-                    Text("Car Tab/ search things") // Placeholder for car content
-                }
-                .tabItem {
-                    Image(systemName: "car.fill")
-                    Text("Find gas")
-                }
-                .tag(ActiveSection.car)
-                
-                ZStack {
-                    Text("Report a gas price") // Placeholder for report a gas price content
-                }
-                .tabItem {
-                    Image(systemName: "clipboard.fill")
-                    Text("Price Log")
-                }
-                .tag(ActiveSection.clipboard)
-                // Map Tab
-                ZStack {
-                    Text("Map Content") // Placeholder for map content
-                }
-                .tabItem {
-                    Image(systemName: "map.fill")
-                    Text("Map")
-                }
-                .tag(ActiveSection.map)
-                
-                // Notifications Tab
-                ZStack {
-                    
-                    Text("Notifications") // Placeholder for bell content
-                }
-                .tabItem {
-                    Image(systemName: "bell.fill")
-                    Text("Notifications")
-                }
-                .tag(ActiveSection.bell)
+               
                 
             }
-            .onAppear(perform: {
-                let appearance = UITabBarAppearance()
-                appearance.backgroundColor = UIColor(named: "ButtonColor")
-                UITabBar.appearance().standardAppearance = appearance
-                UITabBar.appearance().scrollEdgeAppearance = appearance
-            })
-            .background(
-                RoundedRectangle(cornerRadius: 50)
-                    .fill(Color("ButtonColor"))
-                    .shadow(radius:5))
-            
-            
-            .accentColor(Color("TextColor")) // To ensure the text and icons use custom color
-        }.navigationBarBackButtonHidden(true)
+ 
+        }
     }
     
-    
-}
+
 #Preview {
     HomeView()
 }

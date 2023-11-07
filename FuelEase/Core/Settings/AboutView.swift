@@ -45,7 +45,7 @@ struct AboutView: View {
                 
                 RoundedRectangle(cornerRadius: 40)
                     .fill(Color.color)
-                    .frame(width:380, height:500)
+                    .frame(width:380, height:450)
                     .overlay(
                         VStack {
                             Text("FuelEase was created by 6 UNCC students in 2023, driven to simplify the search for affordable gas. Our app's user-friendly interface is designed to help you effortlessly find the best fuel deals in real-time, exactly where you are. With community-driven updates, you'll benefit from the most accurate and current gas prices. Join the FuelEase community today and start saving with confidence and convenience.")
@@ -56,8 +56,8 @@ struct AboutView: View {
                                })
                     .overlay(
                          RoundedRectangle(cornerRadius: 40)
-                             .stroke(Color("TextColor"), lineWidth: 3)
-                     )
+                             .stroke(Color("TextColor"), lineWidth: 3))
+                    .padding(.bottom,50)
                 
             }
             

@@ -38,6 +38,7 @@ struct AccountView: View {
                                     
                                 }
                             })
+                        
                         Image(systemName: "person.crop.circle.fill")
                             .resizable()
                             .frame(width: 80, height: 80)
@@ -89,14 +90,15 @@ struct AccountView: View {
                 )
                 .overlay(RoundedRectangle(cornerRadius: 63)
                             .stroke(Color(red: 0.451, green: 0.235, blue: 0.149), lineWidth: 3))
-                .frame(width: 362, height: 633)
+                .frame(width: 380, height: 620)
                 .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4)
+                .padding(.bottom,40)
             
             HStack(spacing: 20) {
-                Image(systemName: "house")
+                /*Image(systemName: "house")
                 Image(systemName: "magnifyingglass")
                 Image(systemName: "map")
-                Image(systemName: "bell")
+                Image(systemName: "bell")*/
             }
             .font(.system(size: 24))
             .padding(.top, 20)

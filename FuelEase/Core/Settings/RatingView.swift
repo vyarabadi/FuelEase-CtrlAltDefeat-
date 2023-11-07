@@ -4,11 +4,31 @@ struct Rating: View {
     @State private var submit = false
     @State private var rating: Int = 0
     @State private var reviewText: String = ""
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         ZStack {
             Color("BackgroundColor")
                 .ignoresSafeArea()
+            Spacer()
+                .navigationBarBackButtonHidden(true)
+                .toolbar(content: {
+                    ToolbarItem (placement: .navigationBarLeading)  {
+                        
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }, label: {
+                            Image(systemName: "arrow.left")
+                            //Image(systemName: "house.fill")
+                                .foregroundColor(Color("TextColor"))
+                            Text("Help Support")
+                                .foregroundColor(Color("TextColor"))
+                                .font(.custom("AbhayaLibre-ExtraBold", size: 22))
+                            
+                        })
+                        
+                    }
+                })
             VStack {
                 Text("Rate Our App")
                     .font(.custom("AbhayaLibre-ExtraBold", size: 40))

@@ -1,13 +1,9 @@
 import SwiftUI
 
 struct Settings: View {
-    @State private var activeSection: ActiveSection = .home
     @State private var isNavigating: Bool = false
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
  
-    enum ActiveSection: String {
-        case home, car, clipboard, map, bell
-    }
     
     var body: some View {
         NavigationView{
@@ -112,7 +108,9 @@ struct Settings: View {
                                 .fill(Color.button)
                                 .shadow(radius: 5))})
                 }
+                
             }
+           
         }.navigationBarBackButtonHidden(true)
     }
 }

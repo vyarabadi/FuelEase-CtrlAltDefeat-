@@ -43,6 +43,8 @@ struct FavoritesView: View {
                     .overlay(
                     RoundedRectangle(cornerRadius: 40)
                         .stroke(Color("TextColor"), lineWidth:3))
+                    .padding(.bottom,50)
+                    
             }
             
             Text("Placeholder for favorite gas stations")
