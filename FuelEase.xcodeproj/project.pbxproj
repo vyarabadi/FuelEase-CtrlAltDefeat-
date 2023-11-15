@@ -38,7 +38,7 @@
 		8774D46C2AEB5CB900B4843C /* AbhayaLibre-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8774D46B2AEB5CB900B4843C /* AbhayaLibre-ExtraBold.ttf */; };
 		8774D46E2AEB5CC000B4843C /* AbhayaLibre-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8774D46D2AEB5CC000B4843C /* AbhayaLibre-SemiBold.ttf */; };
 		C87C53062AEC9FE400DD0CE6 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87C53052AEC9FE400DD0CE6 /* AccountView.swift */; };
-		C87C53092AECA06300DD0CE6 /* LogOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87C53082AECA06300DD0CE6 /* LogOut.swift */; };
+		C87C53092AECA06300DD0CE6 /* LogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87C53082AECA06300DD0CE6 /* LogOutView.swift */; };
 		C87C530C2AECA13200DD0CE6 /* PriceReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87C530B2AECA13200DD0CE6 /* PriceReportView.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +87,7 @@
 		8774D46D2AEB5CC000B4843C /* AbhayaLibre-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbhayaLibre-SemiBold.ttf"; sourceTree = "<group>"; };
 		8774D46F2AEB5CDF00B4843C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C87C53052AEC9FE400DD0CE6 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
-		C87C53082AECA06300DD0CE6 /* LogOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOut.swift; sourceTree = "<group>"; };
+		C87C53082AECA06300DD0CE6 /* LogOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutView.swift; sourceTree = "<group>"; };
 		C87C530B2AECA13200DD0CE6 /* PriceReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceReportView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,7 +161,6 @@
 				8774D4312AEB49F700B4843C /* Core */,
 				8774D4052AEB494100B4843C /* FuelEaseApp.swift */,
 				C87C530A2AECA12200DD0CE6 /* PriceReport */,
-				C87C53072AECA05500DD0CE6 /* LogOut */,
 				C87C53042AEC9FC500DD0CE6 /* Account */,
 				8774D4092AEB494300B4843C /* Assets.xcassets */,
 				8774D40B2AEB494300B4843C /* Preview Content */,
@@ -222,6 +221,7 @@
 				8774D4392AEB4A9900B4843C /* LoginView.swift */,
 				8774D43B2AEB4B0500B4843C /* SignupUser.swift */,
 				8774D43D2AEB4B6A00B4843C /* SignupView.swift */,
+				C87C53082AECA06300DD0CE6 /* LogOutView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -267,14 +267,6 @@
 				C87C53052AEC9FE400DD0CE6 /* AccountView.swift */,
 			);
 			path = Account;
-			sourceTree = "<group>";
-		};
-		C87C53072AECA05500DD0CE6 /* LogOut */ = {
-			isa = PBXGroup;
-			children = (
-				C87C53082AECA06300DD0CE6 /* LogOut.swift */,
-			);
-			path = LogOut;
 			sourceTree = "<group>";
 		};
 		C87C530A2AECA12200DD0CE6 /* PriceReport */ = {
@@ -435,7 +427,7 @@
 				8774D4412AEB4E7200B4843C /* SettingsView.swift in Sources */,
 				8774D43E2AEB4B6A00B4843C /* SignupView.swift in Sources */,
 				8774D4382AEB4A7500B4843C /* LoginUser.swift in Sources */,
-				C87C53092AECA06300DD0CE6 /* LogOut.swift in Sources */,
+				C87C53092AECA06300DD0CE6 /* LogOutView.swift in Sources */,
 				8774D44B2AEB4F6900B4843C /* RatingView.swift in Sources */,
 				8774D4082AEB494100B4843C /* ContentView.swift in Sources */,
 				8774D43A2AEB4A9900B4843C /* LoginView.swift in Sources */,
