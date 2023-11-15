@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		87182DC52AF9AC9400BE5CD3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87182DC42AF9AC9400BE5CD3 /* SearchView.swift */; };
 		8738B5FF2B046CF100E64D3D /* LogoutUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8738B5FE2B046CF100E64D3D /* LogoutUser.swift */; };
+		8738B6012B047E0900E64D3D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8738B6002B047E0900E64D3D /* FirebaseFirestore */; };
 		8774D4062AEB494100B4843C /* FuelEaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D4052AEB494100B4843C /* FuelEaseApp.swift */; };
 		8774D4082AEB494100B4843C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D4072AEB494100B4843C /* ContentView.swift */; };
 		8774D40A2AEB494300B4843C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8774D4092AEB494300B4843C /* Assets.xcassets */; };
@@ -104,6 +105,7 @@
 				8774D45F2AEB550200B4843C /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				8774D4652AEB550200B4843C /* FirebaseAppCheck in Frameworks */,
 				8774D4632AEB550200B4843C /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				8738B6012B047E0900E64D3D /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +305,7 @@
 				8774D4622AEB550200B4843C /* FirebaseAnalyticsWithoutAdIdSupport */,
 				8774D4642AEB550200B4843C /* FirebaseAppCheck */,
 				8774D4672AEB577400B4843C /* FirebaseAuth */,
+				8738B6002B047E0900E64D3D /* FirebaseFirestore */,
 			);
 			productName = FuelEase;
 			productReference = 8774D4022AEB494100B4843C /* FuelEase.app */;
@@ -788,6 +791,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8738B6002B047E0900E64D3D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8774D45B2AEB550200B4843C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		8774D45C2AEB550200B4843C /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8774D45B2AEB550200B4843C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -1,7 +1,7 @@
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 
-// Define a User struct to store user information
 struct User {
     var userId: String
     var firstName: String
@@ -14,8 +14,10 @@ struct User {
 
 final class AuthenticationManager {
     static let shared = AuthenticationManager()
-    private init() { }
-
+    private let db = Firestore.firestore()
+    
+    private init() {}
+    
     func createUser(user: User, completion: @escaping (Result<User, Error>) -> Void) {
         Auth.auth().createUser(withEmail: user.email, password: user.password) { authDataResult, error in
             if let error = error {
@@ -32,9 +34,19 @@ final class AuthenticationManager {
                     password: user.password
                 )
                 completion(.success(newUser))
+                // Store additional user details in Firestore
+                self.db.collection("users").document(newUser.userId).setData([
+                    "firstName": newUser.firstName,
+                    "lastName": newUser.lastName,
+                    "phoneNumber": newUser.phoneNumber,
+                    "primaryLocation": newUser.primaryLocation,
+                    "email": newUser.email
+                ])
             } else {
                 completion(.failure(NSError(domain: "YourDomain", code: 0, userInfo: nil)))
             }
         }
     }
 }
+
+
