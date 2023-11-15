@@ -19,13 +19,12 @@ struct NavView: View {
         tabBarAppearance.stackedLayoutAppearance.selected.iconColor = UIColor(named:"Color")
         tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor(named:"Color")]
 
-
+    
            UITabBar.appearance().standardAppearance = tabBarAppearance
            if #available(iOS 15.0, *) {
                UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
            }
        }
-    
     var body: some View {
         TabView {
             NavigationStack {
@@ -38,7 +37,7 @@ struct NavView: View {
                 .tabItem {
                     Label("Find gas", systemImage: "car.fill")
                 }
-            PriceReportView()
+            FavoritesView()
                 .tabItem {
                     Label("Price log", systemImage: "clipboard.fill")
                 }
