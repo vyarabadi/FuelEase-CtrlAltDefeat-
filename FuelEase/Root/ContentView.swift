@@ -1,10 +1,12 @@
 import SwiftUI
 
+
 struct ContentView: View {
     @State private var animateLogo = false
-
+    
     var body: some View {
         NavigationView{
+            
             ZStack {
                 Color("BackgroundColor")
                     .ignoresSafeArea()
