@@ -1,4 +1,6 @@
 import SwiftUI
+//import FirebaseFirestore
+
 
 struct Report: View {
     @State private var submit = false
@@ -6,6 +8,25 @@ struct Report: View {
     @State var email: String = ""
     @State var message: String = ""
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
+    /*func submitReport(){
+        let db = Firestore.firestore()
+        
+        let data: [String: Any] = [
+                   "name": name,
+                   "email": email,
+                   "message": message
+               ]
+        db.collection("reports").addDocument(data: data){ error in
+            if let error = error {
+                print("Error adding report")
+            } else {
+                submit = true
+            }
+        }
+    }*/
+    
+ 
     var body: some View {
         ZStack {
             Color("BackgroundColor")
@@ -56,6 +77,7 @@ struct Report: View {
                 HStack {
                     Button("Submit") {
                         submit = true
+                        //submitReport()
                     }
                     .alert("Thank you for your inquiry. We will get back to you as soon as possible!", isPresented: $submit) {
                         Button("OK", role: .cancel) { }}
