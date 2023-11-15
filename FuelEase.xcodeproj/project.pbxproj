@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2448E8312B0333ED00D3DC24 /* RatingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448E8302B0333ED00D3DC24 /* RatingUser.swift */; };
+		2448E8332B03363900D3DC24 /* ReportUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448E8322B03363900D3DC24 /* ReportUser.swift */; };
 		87182DC52AF9AC9400BE5CD3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87182DC42AF9AC9400BE5CD3 /* SearchView.swift */; };
 		8774D4062AEB494100B4843C /* FuelEaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D4052AEB494100B4843C /* FuelEaseApp.swift */; };
 		8774D4082AEB494100B4843C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774D4072AEB494100B4843C /* ContentView.swift */; };
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2448E8302B0333ED00D3DC24 /* RatingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingUser.swift; sourceTree = "<group>"; };
+		2448E8322B03363900D3DC24 /* ReportUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUser.swift; sourceTree = "<group>"; };
 		87182DC42AF9AC9400BE5CD3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		8774D4022AEB494100B4843C /* FuelEase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuelEase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8774D4052AEB494100B4843C /* FuelEaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelEaseApp.swift; sourceTree = "<group>"; };
@@ -230,10 +234,12 @@
 			isa = PBXGroup;
 			children = (
 				8774D4402AEB4E7200B4843C /* SettingsView.swift */,
+				8774D44E2AEB4F9200B4843C /* HelpSupportView.swift */,
 				8774D4422AEB4E9800B4843C /* FeedbackView.swift */,
 				8774D44A2AEB4F6900B4843C /* RatingView.swift */,
+				2448E8302B0333ED00D3DC24 /* RatingUser.swift */,
 				8774D44C2AEB4F7700B4843C /* ReportView.swift */,
-				8774D44E2AEB4F9200B4843C /* HelpSupportView.swift */,
+				2448E8322B03363900D3DC24 /* ReportUser.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -372,7 +378,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8774D3FD2AEB494100B4843C /* Build configuration list for PBXProject "FuelEase" */;
+			buildConfigurationList = 8774D3FD2AEB494100B4843C /* Build configuration list for PBXProject "Main" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -445,9 +451,11 @@
 				8774D44D2AEB4F7700B4843C /* ReportView.swift in Sources */,
 				8774D4522AEB4FC300B4843C /* HomeView.swift in Sources */,
 				87182DC52AF9AC9400BE5CD3 /* SearchView.swift in Sources */,
+				2448E8332B03363900D3DC24 /* ReportUser.swift in Sources */,
 				8774D4062AEB494100B4843C /* FuelEaseApp.swift in Sources */,
 				C87C53062AEC9FE400DD0CE6 /* AccountView.swift in Sources */,
 				8774D44F2AEB4F9200B4843C /* HelpSupportView.swift in Sources */,
+				2448E8312B0333ED00D3DC24 /* RatingUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,7 +750,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8774D3FD2AEB494100B4843C /* Build configuration list for PBXProject "FuelEase" */ = {
+		8774D3FD2AEB494100B4843C /* Build configuration list for PBXProject "Main" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8774D4242AEB494300B4843C /* Debug */,
