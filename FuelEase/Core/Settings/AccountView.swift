@@ -2,32 +2,62 @@
 import SwiftUI
 
 struct AccountView: View {
-    @State private var activeSection: HomeView.ActiveSection = .home
-    
-    let backgroundColor = Color("BackgroundColor") // Replace with your color asset name
-    let textColor = Color("TextColor") // Replace with your color asset name
-    let buttonColor = Color("ButtonColor") // Replace with your color asset name
-    let borderColor = Color("BorderColor") // Replace with your color asset name, if different
-    
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     var body: some View {
-        NavigationView {
-            TabView(selection: $activeSection) {
-                
-                // Account Tab Content
-                ZStack {
-                    backgroundColor.edgesIgnoringSafeArea(.all)
-                    VStack(spacing: -75) {
-                        HStack {
-                            NavigationLink(
-                                destination: Settings(),
-                                label: {
-                                    Image(systemName: "gear")
-                                        .font(.largeTitle)
-                                        .padding()
-                                        .foregroundColor(textColor)
+        VStack(spacing: 0) {
+            Color(.background)
+                .edgesIgnoringSafeArea(.top)
+                .frame(height: 100)
+            
+            RoundedRectangle(cornerRadius: 63)
+                .foregroundColor(Color(red: 0.98, green: 0.953, blue: 0.941))
+                .overlay(
+                    VStack {
+                        Spacer()
+                            .navigationBarBackButtonHidden(true)
+                            .toolbar(content: {
+                                ToolbarItem (placement: .navigationBarLeading)  {
+                                    
+                                    Button(action: {
+                                        presentationMode.wrappedValue.dismiss()
+                                    }, label: {
+                                        Image(systemName: "arrow.left")
+                                        //Image(systemName: "house.fill")
+                                            .foregroundColor(Color("TextColor"))
+                                        Text("Back")
+                                            .foregroundColor(Color("TextColor"))
+                                            .font(.custom("AbhayaLibre-ExtraBold", size: 22))
+                                        
+                                    })
+                                    
                                 }
-                            )
-                            Spacer()
+                            })
+                        
+                        Image(systemName: "person.crop.circle.fill")
+                            .resizable()
+                            .frame(width: 80, height: 80)
+                            .padding(.top, 40)
+                        
+                        Text("Niner Norm")
+                            .font(.title2)
+                            .padding(.top, 10)
+                        
+                        Text("Ninernorm@uncc.edu")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .padding(.top, 5)
+                        
+                        Button(action: {}) {
+                            HStack {
+                                Image(systemName: "pencil")
+                                Text("Edit Profile")
+                            }
+                            .padding(.vertical, 12)
+                            .padding(.horizontal, 40)
+                            .background(Color.white)
+                            .cornerRadius(25)
+                            .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 2)
+                            .padding(.top, 20)
                         }
                         .padding(.horizontal, 16)
                         
@@ -105,61 +135,18 @@ struct AccountView: View {
                             Spacer()
                         }
                     }
-                }
-                    
-                    .tabItem {
-                        Image(systemName: "person.fill")
-                        Text("Account")
-                    }
-                    .tag(HomeView.ActiveSection.home)
-                    
-                    // Car Tab/search
-                    ZStack {
-                        Text("Car Tab/ search things") // Placeholder for car content
-                    }
-                    .tabItem {
-                        Image(systemName: "car.fill")
-                        Text("Find Gas")
-                    }
-                    .tag(HomeView.ActiveSection.car)
-                    
-                    // Clipboard Tab
-                    ZStack {
-                        Text("Report a gas price") // Placeholder for clipboard content
-                    }
-                    .tabItem {
-                        Image(systemName: "clipboard.fill")
-                        Text("Price Log")
-                    }
-                    .tag(HomeView.ActiveSection.clipboard)
-                    
-                    // Map Tab
-                    ZStack {
-                        Text("Map Content") // Placeholder for map content
-                    }
-                    .tabItem {
-                        Image(systemName: "map.fill")
-                        Text("Map")
-                    }
-                    .tag(HomeView.ActiveSection.map)
-                    
-                    // Notifications Tab
-                    ZStack {
-                        Text("Notifications") // Placeholder for notifications content
-                    }
-                    .tabItem {
-                        Image(systemName: "bell.fill")
-                        Text("Notifications")
-                    }
-                    .tag(HomeView.ActiveSection.bell)
-                }
-                .onAppear {
-                    let appearance = UITabBarAppearance()
-                    appearance.backgroundColor = UIColor(named: "ButtonColor")
-                    UITabBar.appearance().standardAppearance = appearance
-                    UITabBar.appearance().scrollEdgeAppearance = appearance
-                }
-                .accentColor(textColor) // To ensure the text and icons use the custom color
+                )
+                .overlay(RoundedRectangle(cornerRadius: 63)
+                            .stroke(Color(red: 0.451, green: 0.235, blue: 0.149), lineWidth: 3))
+                .frame(width: 380, height: 620)
+                .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4)
+                .padding(.bottom,40)
+            
+            HStack(spacing: 20) {
+                /*Image(systemName: "house")
+                Image(systemName: "magnifyingglass")
+                Image(systemName: "map")
+                Image(systemName: "bell")*/
             }
             
             .navigationBarBackButtonHidden(true)

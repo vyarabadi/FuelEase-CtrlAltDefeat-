@@ -1,15 +1,60 @@
 import SwiftUI
+import FirebaseFirestore
+
 
 struct Report: View {
     @State private var submit = false
     @State var name: String = ""
     @State var email: String = ""
     @State var message: String = ""
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
+    private func submitAppReport(){
+        let db = Firestore.firestore()
+        
+        let data: [String: Any] = [
+                   "name": name,
+                   "email": email,
+                   "message": message
+               ]
+        db.collection("appReports").addDocument(data: data){ error in
+            if let error = error {
+                print("Error adding report: \(error.localizedDescription)")
+            } else {
+                submit = true
+                name = ""
+                email = ""
+                message = ""
+            }
+        }
+    }
+    
+ 
     var body: some View {
         ZStack {
             Color("BackgroundColor")
                 .ignoresSafeArea()
+            Spacer()
+                .navigationBarBackButtonHidden(true)
+                .toolbar(content: {
+                    ToolbarItem (placement: .navigationBarLeading)  {
+                        
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }, label: {
+                            Image(systemName: "arrow.left")
+                            //Image(systemName: "house.fill")
+                                .foregroundColor(Color("TextColor"))
+                            Text("Help Support")
+                                .foregroundColor(Color("TextColor"))
+                                .font(.custom("AbhayaLibre-ExtraBold", size: 22))
+                            
+                        })
+                        
+                    }
+                })
             VStack {
+                
                 Text("Please Enter Inquiry:" )
                     .font(.custom("AbhayaLibre-ExtraBold", size: 40))
                     .padding()
@@ -34,7 +79,9 @@ struct Report: View {
                 }
                 HStack {
                     Button("Submit") {
+                       submitAppReport()
                         submit = true
+                        
                     }
                     .alert("Thank you for your inquiry. We will get back to you as soon as possible!", isPresented: $submit) {
                         Button("OK", role: .cancel) { }}

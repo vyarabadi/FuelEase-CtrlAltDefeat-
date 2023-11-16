@@ -75,7 +75,7 @@ struct Login: View {
                     Spacer()
                     if isLoginSuccessful {
                         NavigationLink(
-                            destination: HomeView(),
+                            destination: NavView(),
                             isActive: $isLoginSuccessful,
                             label: {
                                 EmptyView()

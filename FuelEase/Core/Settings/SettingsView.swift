@@ -1,13 +1,9 @@
 import SwiftUI
 
 struct Settings: View {
-    @State private var activeSection: ActiveSection = .home
     @State private var isNavigating: Bool = false
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
  
-    enum ActiveSection: String {
-        case home, car, clipboard, map, bell
-    }
     
     var body: some View {
         NavigationView{
@@ -17,21 +13,7 @@ struct Settings: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    // Top gear button
-                   /* HStack {
-                      
-                        Button(action:{
-                            print("Settings")
-                        }){
-                                Image(systemName: "gear")
-                                    .font(.largeTitle)
-                                    .padding()
-                                    .foregroundColor(.text)
-                            }
-                       
-                        Spacer()
-                    }
-                    .padding(.bottom, 40)*/
+    
                     
                     // Settings Text
                     Text("Settings")
@@ -79,9 +61,10 @@ struct Settings: View {
                                 .shadow(radius: 5))})
                     Button(action: {}, label: {
                         HStack{
-                            Image(systemName: "heart.fill")
-                                .offset(x:-30)
-                            Text("My Favorites")}
+                            NavigationLink(destination:FavoritesView()){
+                                Image(systemName: "heart.fill")
+                                    .offset(x:-30)
+                                Text("My Favorites")}}
                         .font(.custom("AbhayaLibre-ExtraBold", size: 22))
                         .padding()
                         .padding(.horizontal, 43)
@@ -110,9 +93,10 @@ struct Settings: View {
                                 .shadow(radius: 5))})
                     Button(action: {}, label: {
                         HStack{
-                            Image(systemName: "info.circle")
-                                .offset(x:-60)
-                            Text("About")}
+                            NavigationLink(destination:AboutView()){
+                                Image(systemName: "info.circle")
+                                    .offset(x:-60)
+                                Text("About")}}
                         .font(.custom("AbhayaLibre-ExtraBold", size: 22))
                         .padding()
                         .padding(.horizontal, 74)
@@ -124,7 +108,9 @@ struct Settings: View {
                                 .fill(Color.button)
                                 .shadow(radius: 5))})
                 }
+                
             }
+           
         }.navigationBarBackButtonHidden(true)
     }
 }

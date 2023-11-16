@@ -1,14 +1,54 @@
 import SwiftUI
+import FirebaseFirestore
 
 struct Rating: View {
     @State private var submit = false
     @State private var rating: Int = 0
     @State private var reviewText: String = ""
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
+    private func submitRating(){
+        let db = Firestore.firestore()
+        
+        let data: [String: Any] = [
+            "rating": rating,
+            "reviewText": reviewText
+        ]
+        db.collection("appRating").addDocument(data: data){ error in
+            if let error = error {
+                print("Error adding report: \(error.localizedDescription)")
+            } else {
+                submit = true
+                rating = 0
+                reviewText = ""
+
+            }
+        }
+    }
     
     var body: some View {
         ZStack {
             Color("BackgroundColor")
                 .ignoresSafeArea()
+            Spacer()
+                .navigationBarBackButtonHidden(true)
+                .toolbar(content: {
+                    ToolbarItem (placement: .navigationBarLeading)  {
+                        
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }, label: {
+                            Image(systemName: "arrow.left")
+                            //Image(systemName: "house.fill")
+                                .foregroundColor(Color("TextColor"))
+                            Text("Help Support")
+                                .foregroundColor(Color("TextColor"))
+                                .font(.custom("AbhayaLibre-ExtraBold", size: 22))
+                            
+                        })
+                        
+                    }
+                })
             VStack {
                 Text("Rate Our App")
                     .font(.custom("AbhayaLibre-ExtraBold", size: 40))
@@ -30,11 +70,12 @@ struct Rating: View {
                 
                 Text("Your Rating: \(rating) stars").font(.custom("AbhayaLibre-Bold", size: 26))
                 
+                
                 VStack {
                     TextField("Write a review...", text: $reviewText, axis: .vertical)
                         .padding()
                         .background (Color.gray.opacity (0.3) .cornerRadius (10))
-                        .foregroundColor(.gray)
+                        .foregroundColor(.white)
                         .font(.headline)
                         .padding()
                     
@@ -43,6 +84,7 @@ struct Rating: View {
                         // Handle the submission of the rating and review text here
                         print("Rating: \(rating) stars")
                         print("Review Text: \(reviewText)")
+                        submitRating()
                         submit = true
                     }
                     .alert("Thank you for your review!", isPresented: $submit) {
