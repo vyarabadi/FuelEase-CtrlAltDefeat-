@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct PriceReportView: View {
     
@@ -22,22 +23,35 @@ struct PriceReportView: View {
             (!storeName.isEmpty) && (!location.isEmpty) && (!gasPrice.isEmpty)
         }
     
-    //private func submitReport() {
-           //let db = Firestore.firestore()
-           //db.collection("reports").addDocument(data: [
-               //"storeName": storeName,
-               //"location": location,
-               //"gasPrice": gasPrice
-           //]) { error in
-               //if let error = error {
-                   // Handle the error, e.g., show an alert to the user
-                  //print("Error adding document: \(error)")
-              // } else {
-                   // Handle successful submission, e.g., show confirmation or clear form
-                //   print("Document added successfully")
-              // }
-           //}
-      // }
+    private func submitReport() {
+        guard let gasPriceDouble = Double(gasPrice) else {
+            print("Gas price is not a valid number.")
+            showErrorGasPrice = true
+            return
+        }
+    
+        let db = Firestore.firestore()
+            db.collection("reports").addDocument(data: [
+                "storeName": storeName,
+                "location": location,
+                "gasPrice": gasPriceDouble,
+                "timestamp": Timestamp(date: Date())
+            ]) { error in
+                if let error = error {
+                    
+                    print("Error adding document: \(error)")
+                    
+                } else {
+                    
+                    print("Document added successfully")
+                    
+                    storeName = ""
+                    location = ""
+                    gasPrice = ""
+                    showThankUserView = true
+                }
+            }
+        }
     
     var body: some View {
         ZStack {
@@ -162,15 +176,14 @@ struct PriceReportView: View {
                     
                     
                 VStack {
-                            // Your other content...
-
-                            // Report Button
+                           
                             Button(action: {
-                                 //   submitReport()
+                                    
                                     showErrorStoreName = storeName.isEmpty
                                     showErrorLocation = location.isEmpty
                                     showErrorGasPrice = gasPrice.isEmpty
                                 if !showErrorStoreName && !showErrorLocation && !showErrorGasPrice {
+                                        submitReport()
                                         self.showThankUserView = true
                                     }
 
@@ -189,7 +202,7 @@ struct PriceReportView: View {
                             .offset(x: 0, y: -280)
                         }
                         .fullScreenCover(isPresented: $showThankUserView) {
-                            // ThankUserView is presented as a full-screen cover
+                           
                             ThankUserView()
                         }
                     }
@@ -207,10 +220,9 @@ struct PriceReportView: View {
         })
         .background(
             RoundedRectangle(cornerRadius: 50)
-                .fill(Color("ButtonColor"))
                 .shadow(radius: 5)
         )
-        .accentColor(Color("TextColor")) // To ensure the text and icons use your color
+        .accentColor(Color("TextColor"))
     }
 }
 
