@@ -11,37 +11,23 @@ struct ThankUserView: View {
         ZStack {
             Color("BackgroundColor")
                 .ignoresSafeArea()
-            
-            
-        
-            
-            
-            ZStack {
-                Color("BackgroundColor")
-                          .edgesIgnoringSafeArea(.all)
                 
-                
-                
-
-                VStack {
-                    
-                    
                     HStack {
                         Button(action: {
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             HStack {
-                                Image(systemName: "arrow.backward") // System icon for back
+                                Image(systemName: "arrow.backward")
                                 Text("Back")
                             }
-                            .foregroundColor(.blue) // Set your color
+                            .foregroundColor(.blue)
                             .padding()
                             
                         }
-                        Spacer() // This will push the button to the left
+                        Spacer()
                     }
-                    .offset(x: 0, y: -400)
-                }
+                    .offset(x: 0, y: -350)
+                
 
                 Rectangle()
                     .frame(width: 400, height: 700)
@@ -72,7 +58,7 @@ struct ThankUserView: View {
             }
                 
         }
-    }
+    
 
 
 struct ThankUserView_Preview: PreviewProvider {
