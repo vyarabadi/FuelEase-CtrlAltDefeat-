@@ -1,5 +1,5 @@
 import SwiftUI
-//import FirebaseFirestore
+import FirebaseFirestore
 
 
 struct Report: View {
@@ -9,7 +9,7 @@ struct Report: View {
     @State var message: String = ""
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
-    /*func submitReport(){
+    private func submitAppReport(){
         let db = Firestore.firestore()
         
         let data: [String: Any] = [
@@ -17,14 +17,17 @@ struct Report: View {
                    "email": email,
                    "message": message
                ]
-        db.collection("reports").addDocument(data: data){ error in
+        db.collection("appReports").addDocument(data: data){ error in
             if let error = error {
-                print("Error adding report")
+                print("Error adding report: \(error.localizedDescription)")
             } else {
                 submit = true
+                name = ""
+                email = ""
+                message = ""
             }
         }
-    }*/
+    }
     
  
     var body: some View {
@@ -76,8 +79,9 @@ struct Report: View {
                 }
                 HStack {
                     Button("Submit") {
+                       submitAppReport()
                         submit = true
-                        //submitReport()
+                        
                     }
                     .alert("Thank you for your inquiry. We will get back to you as soon as possible!", isPresented: $submit) {
                         Button("OK", role: .cancel) { }}
