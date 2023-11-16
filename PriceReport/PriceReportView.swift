@@ -13,14 +13,16 @@ struct PriceReportView: View {
     @State private var storeName: String = ""
     @State private var location: String = ""
     @State private var gasPrice: String = ""
+    @State private var gastype: String = ""
     @State private var showThankUserView = false
     @State private var showErrorStoreName = false
     @State private var showErrorLocation = false
     @State private var showErrorGasPrice = false
+    @State private var showErrorGasType = false
     
     
     private var isFormValid: Bool {
-            (!storeName.isEmpty) && (!location.isEmpty) && (!gasPrice.isEmpty)
+        (!storeName.isEmpty) && (!location.isEmpty) && (!gasPrice.isEmpty) && (!gastype.isEmpty)
         }
     
     private func submitReport() {
@@ -35,6 +37,7 @@ struct PriceReportView: View {
                 "storeName": storeName,
                 "location": location,
                 "gasPrice": gasPriceDouble,
+                "gasType": gastype,
                 "timestamp": Timestamp(date: Date())
             ]) { error in
                 if let error = error {
@@ -48,6 +51,7 @@ struct PriceReportView: View {
                     storeName = ""
                     location = ""
                     gasPrice = ""
+                    gastype = " "
                     showThankUserView = true
                 }
             }
@@ -111,10 +115,10 @@ struct PriceReportView: View {
 
                     )
                     .frame(width: 340, height: 50)
-                    .offset(x: 0, y: -400)
+                    .offset(x: 0, y: -450)
                     .overlay(
                         Text(showErrorStoreName ? "Please fill out this field with the store name" : "")
-                            .offset(x: 0, y: -350)
+                            .offset(x: 0, y: -400)
                             .foregroundColor(.red)
                     )
 
@@ -133,13 +137,13 @@ struct PriceReportView: View {
                             )
                     )
                     .frame(width: 340, height: 50)
-                    .offset(x: 0, y: -360)
+                    .offset(x: 0, y: -400)
                     .onChange(of: location) { _ in
                         showErrorLocation = location.isEmpty
                     }
                     .overlay(
                         Text(showErrorLocation ? "Please fill out this field with the location" : "")
-                            .offset(x: 0, y: -310)
+                            .offset(x: 0, y: -350)
                             .foregroundColor(.red)
                     )
 
@@ -157,7 +161,7 @@ struct PriceReportView: View {
                             )
                     )
                     .frame(width: 340, height: 50)
-                    .offset(x: 0, y: -320)
+                    .offset(x: 0, y: -350)
                     .onChange(of: gasPrice) { newValue in
                         // Filter out non-numeric characters
                         gasPrice = newValue.filter { "0123456789.".contains($0) }
@@ -165,10 +169,35 @@ struct PriceReportView: View {
                     }
                     .overlay(
                         Text(showErrorGasPrice ? "Please fill out this field with the gas price" : "")
-                            .offset(x: 0, y: -270)
+                            .offset(x: 0, y: -300)
                             .foregroundColor(.red)
                     )
 
+                
+                TextField("Enter Gas Type", text: $gastype)
+                    .keyboardType(.decimalPad) // Numeric keypad
+                    .font(.custom("AbhayaLibre-ExtraBold", size: 32))
+                    .padding()
+                    .foregroundColor(Color("TextColor"))
+                    .background(
+                        Capsule()
+                            .fill(Color.button)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 25)
+                                    .stroke(showErrorGasPrice ? Color.red : Color("TextColor"), lineWidth: 4)
+                            )
+                    )
+                    .frame(width: 340, height: 50)
+                    .offset(x: 0, y: -300)
+                    .onChange(of: gastype) { newValue in
+                        // Filter out non-numeric characters
+                        showErrorGasType = gastype.isEmpty
+                    }
+                    .overlay(
+                        Text(showErrorGasType ? "Please fill out this field with the gas type" : "")
+                            .offset(x: 0, y: -250)
+                            .foregroundColor(.red)
+                    )
 
                     
                     //REPORT BUTTON
@@ -199,7 +228,7 @@ struct PriceReportView: View {
                                     )
                             }
                             .disabled(!isFormValid)
-                            .offset(x: 0, y: -280)
+                            .offset(x: 0, y: -250)
                         }
                         .fullScreenCover(isPresented: $showThankUserView) {
                            
