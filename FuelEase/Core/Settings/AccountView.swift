@@ -30,7 +30,7 @@ struct AccountView: View {
                                         Image(systemName: "arrow.left")
                                         //Image(systemName: "house.fill")
                                             .foregroundColor(Color("TextColor"))
-                                        Text("Settings")
+                                        Text("Back")
                                             .foregroundColor(Color("TextColor"))
                                             .font(.custom("AbhayaLibre-ExtraBold", size: 22))
                                         
