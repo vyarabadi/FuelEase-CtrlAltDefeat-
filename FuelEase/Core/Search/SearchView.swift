@@ -1,19 +1,10 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var activeSection: ActiveSection = .car
     @State private var searchText = ""
     @State private var searchResults: [String] = []
-    @State private var sortByOption: SortByOption = .Price
     @State private var selectGradeOption: SelectGradeOption = .Regular
-
-    enum ActiveSection: String {
-        case home, car, clipboard, map, bell
-    }
     
-    enum SortByOption: String, CaseIterable {
-        case Price, Distance, Rating
-    }
     
     enum SelectGradeOption: String, CaseIterable {
         case Regular, Plus, Premium
@@ -21,7 +12,6 @@ struct SearchView: View {
 
     var body: some View {
         NavigationView {
-            TabView(selection: $activeSection) {
 
                 ZStack {
                     Color("ButtonColor")
@@ -55,7 +45,7 @@ struct SearchView: View {
                 .tabItem {
                     Image(systemName: "house.fill")
                     Text("Home")
-                }.tag(ActiveSection.home)
+                }
 
                 // Car Tab/search
                 ZStack {
@@ -103,6 +93,7 @@ struct SearchView: View {
                                             .stroke(Color("TextColor"), lineWidth: 2)
                                     )
                                 HStack {
+                                   
                                     TextField("Enter Your Location ", text: $searchText)
                                         .padding(10)
                                         .background(Color.clear)
@@ -119,29 +110,10 @@ struct SearchView: View {
                                     .padding(.trailing, 20)
                                 }
                             }
-                            .padding(.top, -120)
+                            .padding(.top, -200)
                             .padding(.horizontal, 18)
                             
                             HStack {
-                                // Sort By Picker
-                                VStack {
-                                    Picker("Sort by", selection: $sortByOption) {
-                                        ForEach(SortByOption.allCases, id: \.self) { option in
-                                            Text(option.rawValue)
-                                                .foregroundColor(Color("TextColor"))
-                                        }
-                                    }
-                                    .pickerStyle(MenuPickerStyle())
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.horizontal, 20)
-                                    .padding(.vertical, 10)
-                                    .border(Color("TextColor"), width: 2)
-                                    .overlay(RoundedRectangle(cornerRadius: 50)
-                                        .stroke(Color("TextColor"), lineWidth: 3))
-                                    .cornerRadius(50)
-                                    .clipped()
-                                }.padding(.horizontal, 25)
-                                
                                 // Select Grade Picker
                                 VStack {
                                     Picker("Select grade", selection: $selectGradeOption) {
@@ -162,11 +134,11 @@ struct SearchView: View {
                                 }.padding(.horizontal, 20)
                                 
                             }
-                            .padding(.top, -50)
+                            .padding(.top, -100)
                             .padding(.bottom, 80)
                             
                             Button(action: performSearch) {
-                                Text("Submit")
+                                        Text("Submit")
                                     .foregroundColor(Color("Color"))
                                     .font(.custom("AbhayaLibre-SemiBold", size: 24))
                                     .padding(.horizontal, 45.0)
@@ -184,33 +156,8 @@ struct SearchView: View {
                         )
                     }.padding(.top, 5)
                 }
-                .tabItem {
-                    Image(systemName: "car.fill")
-                    Text("Find gas")
-                }
-                .tag(ActiveSection.car)
 
-                // Clipboard Tab
-                ZStack {
-                    Text("Clipboard Content") // Placeholder for clipboard content
-                }
-                .tabItem {
-                    Image(systemName: "clipboard.fill")
-                    Text("Price Log")
-                }
-                .tag(ActiveSection.clipboard)
 
-                // Map Tab
-                ZStack {
-                    Text("Map Content") // Placeholder for map content
-                }
-                .tabItem {
-                    Image(systemName: "map.fill")
-                    Text("Map")
-                }
-                .tag(ActiveSection.map)
-
-                // Notifications Tab
                 ZStack {
                     Text("Notifications") // Placeholder for bell content
                 }
@@ -218,9 +165,7 @@ struct SearchView: View {
                     Image(systemName: "bell.fill")
                     Text("Notifications")
                 }
-                .tag(ActiveSection.bell)
             }
-        }
     }
 
     func performSearch() {
